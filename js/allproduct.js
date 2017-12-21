@@ -3,6 +3,11 @@ var recor = [],
 	add = $(".addproduct"),
 	productName = "";
 
+////退出
+//$(".col_2>a").click(function(){
+//	location.href="index.html"
+//})
+
 //页面的切换
 function allproduct() {
 	$(".content").css("display", "none")
