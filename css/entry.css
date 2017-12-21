@@ -1,0 +1,55 @@
+.all{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/*background: url(../img/beijing1.jpg);*/
+	background-size: 100% 100%;
+}
+
+.pane{
+	width: 350px;
+	height: 200px;
+	background: #34485b;
+	margin: 200px auto 0 auto;
+	border-radius: 10px;
+	opacity: 0.8;
+	padding-top: 20px;
+}
+
+.pane input{
+	display: block;
+	width: 240px;
+	height: 38px;
+	border: 1px solid #e5ffff;
+	margin: 0 auto;
+	background: #3889c1;
+	padding-left: 40px;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+
+.pane input::-webkit-input-placeholder{
+	color: #FFFFFF;
+}
+
+.pane .users{
+	background: url(../img/gerenzhongxin.png)no-repeat 8px center;
+	background-size: 22px 25px;
+}
+.pane .password{
+	margin-top: 20px;
+	background: url(../img/shuo.png)no-repeat 8px center;
+	background-size: 22px 25px;
+}
+
+.pane p{
+	width: 300px;
+	height: 45px;
+	line-height: 45px;
+	color: #FFFFFF;
+	background: #169bd5;
+	text-align: center;
+	margin: 30px auto 0 auto;
+	border-radius: 5px;
+}

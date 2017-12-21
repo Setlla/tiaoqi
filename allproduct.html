@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>淘汽商贸后台管理系统</title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-theme.css" />
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" href="css/allproduct.css" />
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/allproduct.js"></script>
+	</head>
+
+	<body>
+		<!--
+        	作者：492680716@qq.com
+        	时间：2017-09-25
+        	描述：头部
+       -->
+		<div class="head">
+			<div class="header">
+				<div class="col_1"><strong>淘汽商贸</strong>后台管理系统</div>
+				<div class="col_2">
+					<span>你好，管理员！</span>
+					<a href="">退出</a>
+				</div>
+			</div>
+		</div>
+		<!--
+        	作者：492680716@qq.com
+        	时间：2017-09-25
+        	描述：左侧栏
+     -->
+		<ul class="list-unstyled managelist">
+			<li class="managelist_li">
+				<div class="motion">
+					<span style="background-position:2px -53px;"></span>
+					<span>商品管理</span>
+					<span class="arr"></span>
+				</div>
+				<ul>
+					<li>
+						<a onclick="allproduct()" class="allproduct">全部商品</a><br />
+						<a onclick="addproduct()" class="addproduct">添加商品</a><br />
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="col_10_right">
+			<div class="retrieval">
+				<p>检索</p>
+				<div class="form-inline">
+					<div class="form-group form_select">
+						<span class="shopping">商品搜索：</span>
+						<div class="input-group">
+							<input type="text" class="productname form-control" id="exampleInputAmount" placeholder="输入商品名称">
+							<div class="input-group-addon img_color" onclick="search()"><img src="img/icon/icon_05.gif" /></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--头部下面最大div右侧栏里面的检索层-->
+			<div class="retrieval_1">
+				<div class="content">
+					<ul>
+						<li class="opi">
+							<b>产品信息填写</b>
+						</li>
+						<li class="title">
+							<span>标题</span>
+							<input type="text" placeholder="如：广汽丰田凯美瑞前大灯" />
+						</li>
+						<li class="oldprice">
+							<span>原始价格</span>
+							<input type="text" placeholder="如：35.00" />
+						</li>
+						<li class="newprice">
+							<span>折扣价</span>
+							<input type="text" placeholder="如：30.00" />
+						</li>
+						<li class="Carriage">
+							<span>配送方式</span>
+							<input type="text" placeholder="如：包邮" />
+						</li>
+						<li class="Destination">
+							<span>发货地址</span>
+							<input type="text" placeholder="如：湖南长沙" />
+						</li>
+						<li class="picture">
+							<p>图片</p>
+							<img src="img/picture.png" class="image"/>
+							<input type="file" class="print" />
+						</li>
+						<li class="elaborate">
+							<span>详细描述</span>
+							<textarea></textarea>
+						</li>
+						<li class="submit">
+							<a>提交</a>
+						</li>
+						<li class="rejigger">
+							<a>提交</a>
+						</li>
+					</ul>
+				</div>
+				<div class="products">
+					<div class="form-inline form_align">
+						<span>全部商品</span>
+						<a href="#" class="btn btn-default btn-sm active" role="button">批量删除</a>
+					</div>
+					<table class="table table-bordered table-hover">
+						<tbody></tbody>
+					</table>
+					<!--
+                	作者：492680716@qq.com
+                	时间：2017-09-25
+                	描述：分页功能
+                -->
+					<!--<nav aria-label="Page navigation">
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">1</a>
+							</li>
+							<li>
+								<a href="#">2</a>
+							</li>
+							<li>
+								<a href="#">3</a>
+							</li>
+							<li>
+								<a href="#">4</a>
+							</li>
+							<li>
+								<a href="#">5</a>
+							</li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</ul>
+					</nav>-->
+				</div>
+			</div>
+		</div>
+
+		<script src="js/allproduct.js"></script>
+	</body>
+
+</html>
