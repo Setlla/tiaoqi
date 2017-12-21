@@ -40,6 +40,7 @@ $(".motion").click(function() {
 loding();
 
 function loding() {
+	productName = $(".productname").val();
 	$.ajax({
 		type: "post",
 		url: "http://39.108.219.59:8080/productList",
@@ -56,13 +57,11 @@ function loding() {
 
 //产品搜索
 function search() {
-	productName = $(".productname").val();
 	loding();
 }
 
 $('.productname').keydown(function(e) {
 	if(e.keyCode == 13) {
-		productName = $(".productname").val();
 		loding();
 	}
 });
