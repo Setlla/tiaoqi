@@ -224,6 +224,10 @@
 	padding-left: 10px;
 }
 
+.content .category select{
+	width: 150px; 
+}
+
 .opi {
 	font-size: 20px;
 	color: #323232;

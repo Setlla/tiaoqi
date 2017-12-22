@@ -1,9 +1,19 @@
 var recor = [],
 	all = $(".allproduct"),
 	add = $(".addproduct"),
-	productName = "";
-
-////退出
+	productName = "",
+	isHot = $(".isHot select"),
+	isRecommend = $(".isRecommend select"),
+	typeId =$(".category select"),
+	title = $(".title input"),
+	oldprice = $(".oldprice input"),
+	newprice = $(".newprice input"),
+	elaborate = $(".elaborate textarea"),
+	Carriage = $(".Carriage input"),
+	Destination = $(".Destination input"),
+	img = $(".image");
+	
+////退出 
 //$(".col_2>a").click(function(){
 //	location.href="index.html"
 //})
@@ -16,13 +26,26 @@ function allproduct() {
 	all.css("color", "#e34e42");
 	add.css("color", "#FFFFFF")
 }
+function addpro(){
+	addproduct();
+	isHot.val("");
+	isRecommend.val("");
+	typeId.val("");
+	title.val("");
+	oldprice.val("");
+	newprice.val("");
+	elaborate.val("");
+	Carriage.val("");
+	Destination.val("");
+	img.attr("src", "img/picture.png");
+}
 
 var addproduct = function() {
 	$(".content").css("display", "block");
 	$(".retrieval").css("display", "none")
 	$(".products").css("display", "none");
 	add.css("color", "#e34e42");
-	all.css("color", "#FFFFFF")
+	all.css("color", "#FFFFFF");
 }
 
 //侧栏点击打开与闭合效果
@@ -123,47 +146,26 @@ function getObjectURL(file) {
 $(".print").change(function() {
 	var img = $('.print')[0].files[0];
 	var imgurl = getObjectURL(img);
-	$(".image").attr("src", imgurl);
+	img.attr("src", imgurl);
 })
 
 //formData表单数据的获取
 function obtain() {
 	var formData = new FormData(); //提交表单
-	var isHot=function(){
-		if($(".isHot select").val()=="是"){
-			return 1;
-		}else{
-			return 0;
-		}
-	};
-	var isRecommend=function(){
-		if($(".isRecommend select").val()=="是"){
-			return 1;
-		}else{
-			return 0;
-		}
-	};
-	var typeId =$(".category").val();
-	var title = $(".title input").val();
-	var oldprice = $(".oldprice input").val();
-	var newprice = $(".newprice input").val();
-	var elaborate = $(".elaborate textarea").val();
-	var Carriage = $(".Carriage input").val();
-	var Destination = $(".Destination input").val();
 
 	if($('.print')[0].files[0]) {
 		formData.append("Image", $('.print')[0].files[0]);
 	}
-	formData.append("isHot", isHot);
-	formData.append("isRecommend", isRecommend);
-	formData.append("typeId", typeId);
+	formData.append("isHot", isHot.val());
+	formData.append("isRecommend", isRecommend.val());
+	formData.append("typeId", typeId.val());
 	formData.append("id", localStorage.getItem("id"));
-	formData.append("Name", title);
-	formData.append("OldPrice", oldprice);
-	formData.append("CurPrice", newprice);
-	formData.append("Des", elaborate);
-	formData.append("Carriage", Carriage);
-	formData.append("Destination", Destination);
+	formData.append("Name", title.val());
+	formData.append("OldPrice", oldprice.val());
+	formData.append("CurPrice", newprice.val());
+	formData.append("Des", elaborate.val());
+	formData.append("Carriage", Carriage.val());
+	formData.append("Destination", Destination.val());
 
 	return formData;
 }
@@ -171,6 +173,7 @@ function obtain() {
 //添加商品的提交
 $(".submit a").click(function() {
 	uploadImage();
+	editor(0)
 })
 
 function uploadImage() {
@@ -223,13 +226,16 @@ function editor(that) {
 	$(".rejigger").css("display", "block")
 	var num = $(that).parents('tr').index() - 1;
 	var data = recor[num];
-	$(".title input").val(data.Name)
-	$(".oldprice input").val(data.OldPrice)
-	$(".newprice input").val(data.CurPrice);
-	$(".elaborate textarea").val(data.Des);
-	$(".Carriage input").val(data.Carriage);
-	$(".Destination input").val(data.Destination);
-	$(".image").attr("src", data.Image);
+	isHot.val(data.isHot);
+	isRecommend.val(data.isRecommend);
+	typeId.val(data.typeId);
+	title.val(data.Name);
+	oldprice.val(data.OldPrice);
+	newprice.val(data.CurPrice);
+	elaborate.val(data.Des);
+	Carriage.val(data.Carriage);
+	Destination.val(data.Destination);
+	img.attr("src", data.Image);
 	localStorage.setItem("id", data.id);
 }
 

@@ -47,7 +47,7 @@
 				<ul>
 					<li>
 						<a onclick="allproduct()" class="allproduct">全部商品</a><br />
-						<a onclick="addproduct()" class="addproduct">添加商品</a><br />
+						<a onclick="addpro()" class="addproduct">添加商品</a><br />
 					</li>
 				</ul>
 			</li>
@@ -94,22 +94,30 @@
 						</li>
 						<li class="category">
 							<span>商品类别</span>
-							<input type="text" placeholder="如：轮胎" />
+							<select>
+								<option value="0"></option>
+								<option value="1">类别1</option>
+								<option value="2">类别2</option>
+								<option value="3">类别3</option>
+								<option value="4">类别4</option>
+								<option value="5">类别5</option>
+								<option value="6">类别6</option>
+							</select>
 						</li>
 						<li class="isHot">
 							<span>是否热卖</span>
 							<select>
-								<option value="1"></option>
+								<option></option>
 								<option value="1">是</option>
-								<option value="1">否</option>
+								<option value="0">否</option>
 							</select>
 						</li>
 						<li class="isRecommend">
 							<span>是否推荐</span>
 							<select>
 								<option></option>
-								<option>是</option>
-								<option>否</option>
+								<option value="1">是</option>
+								<option value="0">否</option>
 							</select>
 						</li>
 						<li class="picture">
