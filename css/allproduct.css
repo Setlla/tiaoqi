@@ -185,6 +185,10 @@
 
 .content{display: none;}
 
+.content .opi{
+	margin-top: 0;
+}
+
 .content ul li {
 	padding-left: 30px;
 	margin-top: 30px;
@@ -205,6 +209,18 @@
 	position: absolute;
 	left: 150px;
 	width: 300px;
+	padding-left: 10px;
+}
+
+.content ul li select{
+	font-size: 14px;
+	color: #323232;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #dddddd;
+	position: absolute;
+	left: 150px;
+	width: 100px;
 	padding-left: 10px;
 }
 

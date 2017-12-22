@@ -129,6 +129,21 @@ $(".print").change(function() {
 //formData表单数据的获取
 function obtain() {
 	var formData = new FormData(); //提交表单
+	var isHot=function(){
+		if($(".isHot select").val()=="是"){
+			return 1;
+		}else{
+			return 0;
+		}
+	};
+	var isRecommend=function(){
+		if($(".isRecommend select").val()=="是"){
+			return 1;
+		}else{
+			return 0;
+		}
+	};
+	var typeId =$(".category").val();
 	var title = $(".title input").val();
 	var oldprice = $(".oldprice input").val();
 	var newprice = $(".newprice input").val();
@@ -139,6 +154,9 @@ function obtain() {
 	if($('.print')[0].files[0]) {
 		formData.append("Image", $('.print')[0].files[0]);
 	}
+	formData.append("isHot", isHot);
+	formData.append("isRecommend", isRecommend);
+	formData.append("typeId", typeId);
 	formData.append("id", localStorage.getItem("id"));
 	formData.append("Name", title);
 	formData.append("OldPrice", oldprice);
