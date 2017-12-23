@@ -69,7 +69,11 @@ function loding() {
 		url: "http://39.108.219.59:8080/productList",
 		contentType: "application/json",
 		data: JSON.stringify({
-			productName: productName
+			productName: productName,
+			typeId: $('.productType select').val(),
+			isRecommend: $('.groom select').val(),
+			isHot: $('.heat select').val(),
+			isDelete: $('.frame select').val()
 		}),
 		success: function(data) {
 			content(data.result);
@@ -96,31 +100,28 @@ function content(result) {
 		"<td>商品名称</td>" +
 		"<td>原始价格</td>" +
 		"<td>折扣价格</td>" +
-		"<td>是否热卖</td>" +
-		"<td>是否推荐</td>" +
-		"<td>是否下架</td>" +
 		"<td>上传时间</td>" +
+		"<td>设置上架</td>" +
+		"<td>设置热卖</td>" +
+		"<td>设置推荐</td>" +
 		"<td>查看</td>" +
 		"</tr>"
 	for(var i = 0; i < result.length; i++) {
-		var hot=result[i].isHot;
-		var groom=result[i].isRecommend
-		var flag = result[i].isDelete;
+		var hot = result[i].isHot;
+		var recommend = result[i].isRecommend;
+		var del = result[i].isDelete;
 		loop = loop + "<tr>" +
 			"<td><input type='checkbox'></td>" +
 			"<td><img src=" + result[i].Image + " /></td>" +
 			"<td class='name'>" + result[i].Name + "</td>" +
 			"<td>" + result[i].OldPrice + "</td>" +
 			"<td>" + result[i].CurPrice + "</td>" +
-			"<td>" + formateDelete(hot) + "</td>" +
-			"<td>" + formateDelete(groom) + "</td>" +
-			"<td>" + formateDelete(flag) + "</td>" +
 			"<td>" + new Date(result[i].createdAt).toLocaleDateString() + "</td>" +
+			"<td>" + "<a onclick='changeState(0," + result[i].id + "," + result[i].isDelete + ")'>"+ formateStr(0, del) +"</a> "  + "</td>" +
+			"<td>" + "<a onclick='changeState(1," + result[i].id + "," + result[i].isHot + ")'>"+ formateStr(1, hot) +"</a>" + "</td>" +
+			"<td>" + "<a onclick='changeState(2," + result[i].id + "," + result[i].isRecommend + ")'>"+ formateStr(2, recommend) +"</a>" + "</td>" +
 			"<td>" +
-			"<a onclick='editor(this)'>编辑</a> |" +
-			"<a onclick='changeState("+ flag +"," + result[i].id + ")'>"+ changeState(hot) +"</a> |" +
-			"<a onclick='changeState("+ flag +"," + result[i].id + ")'>"+ changeState(groom) +"</a> |"+
-			"<a onclick='changeState("+ flag +"," + result[i].id + ")'>"+ changeState(flag) +"</a>"+
+			"<a onclick='editor(this)'>编辑</a>" +
 			"</td>" +
 			"</tr>"
 	}
@@ -128,19 +129,39 @@ function content(result) {
 }
 
 
-function changeState(hot,groom,flag) {
-	var a=hot ? "非热卖" : "热卖";
-	var b=groom ? "非推荐" : "推荐";
-	var c=flag ? "上架" : "下架";
-	 return {hot:a,groom:b,flag:c}
+function changeState(index, id, value) {
+	var arr = ['d','h','r'];
+	var str1 = ['上架成功','取消热卖成功','取消推荐成功'];
+	var str2 = ['下架成功','设置热卖成功','设置推荐成功'];
+	
+	var _data = {
+		type: arr[index],
+		id: id,
+		value: value?0:1
+	}
+	
+	$.ajax({
+		type:"post",
+		url:"http://39.108.219.59:8080/changeState",
+		data: JSON.stringify(_data),
+		contentType: "application/json",
+		success: function(result) {
+			value?swal(str1[index]):swal(str2[index]);
+		}
+	});
+	
 }
 
-function formateDelete(hot,groom,flag) {
-	return hot ? "已热卖" : "未热卖";
-	return groom ? "已推荐" : "未推荐";
-	return flag ? "已下架" : "未下架";
-}
+$(document).on('click','.swal-button',function() {
+	location.reload();
+})
 
+
+function formateStr(flag, value) {
+	var str1 = ['上架', '取消', '取消'];
+	var str2 = ['下架', '热卖', '推荐']
+	return value ? str1[flag] : str2[flag];
+}
 
 
 //本地预览图片函数
@@ -209,29 +230,6 @@ function uploadImage() {
 	});
 }
 
-//删除产品
-function delet(flag, id) {
-	var url = "";
-	if (flag) {
-		url = "http://39.108.219.59:8080/onProduct";
-	}else {
-		url = "http://39.108.219.59:8080/offProduct";
-	}
-	
-	$.ajax({
-		type: "post",
-		url: url,
-		contentType: "application/json",
-		data: JSON.stringify({
-			"id": id
-		}),
-		success: function(data) {
-			if(data.isSuccess) {
-				location.reload();
-			}
-		}
-	});
-}
 
 //进入编辑页面
 function editor(that) {

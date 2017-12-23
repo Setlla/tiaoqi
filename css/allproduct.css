@@ -146,11 +146,13 @@
 	
 	.retrieval p select{
 		background: #FFFFFF;
+		width: 100px;
 	}
 	
-	
-	
-	
+	.btn-search {
+		margin-left: 50px;
+		width: 100px;
+	}
 	
 	
 	.form_select select{

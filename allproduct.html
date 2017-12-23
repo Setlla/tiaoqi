@@ -60,7 +60,7 @@
 						<p class="heat">
 							<span>是否热卖</span>
 							<select>
-								<option value="0"></option>
+								<option></option>
 								<option value="1">是</option>
 								<option value="0">否</option>
 							</select>
@@ -68,7 +68,7 @@
 						<p class="groom">
 							<span>是否推荐</span>
 							<select>
-								<option value="0"></option>
+								<option></option>
 								<option value="1">是</option>
 								<option value="0">否</option>
 							</select>
@@ -76,16 +76,28 @@
 						<p class="frame">
 							<span>是否下架</span>
 							<select>
-								<option value="0"></option>
+								<option></option>
 								<option value="1">是</option>
 								<option value="0">否</option>
+							</select>
+						</p>
+						<p class="productType">
+							<span>产品类别</span>
+							<select>
+								<option></option>
+								<option value="1">类别1</option>
+								<option value="2">类别2</option>
+								<option value="3">类别3</option>
+								<option value="4">类别4</option>
+								<option value="5">类别5</option>
+								<option value="6">类别6</option>
 							</select>
 						</p>
 						<span class="shopping">商品搜索：</span>
 						<div class="input-group">
 							<input type="text" class="productname form-control" id="exampleInputAmount" placeholder="输入商品名称">
-							<div class="input-group-addon img_color" onclick="search()"><img src="img/icon/icon_05.gif" /></div>
 						</div>
+						<button class="btn btn-success btn-search" onclick="search()">搜索</button>
 					</div>
 				</div>
 			</div>
@@ -206,7 +218,7 @@
 				</div>
 			</div>
 		</div>
-
+		<script type="text/javascript" src="js/sweetalert.min.js" ></script>]
 		<script src="js/allproduct.js"></script>
 	</body>
 
