@@ -133,9 +133,26 @@
 		margin:20px;
 		padding: 20px;
 	}
-	.retrieval p{
+	.retrieval h2{
 		font-size: 18px;
 	}
+	.retrieval p{
+		font-size: 14px;
+		float: left;
+		height: 35px;
+		line-height: 35px;
+		margin-right: 30px;
+	}
+	
+	.retrieval p select{
+		background: #FFFFFF;
+	}
+	
+	
+	
+	
+	
+	
 	.form_select select{
 		background-color: #efefef;
 		margin-right: 10px;
@@ -318,7 +335,7 @@
 	cursor: pointer;
 }
 
-.name{width: 300px;overflow: hidden;}
+.name{width: 220px;overflow: hidden;}
 
 .products table tr td a{
 	cursor: pointer;
@@ -335,4 +352,9 @@
     margin-right: 10px;
 }
 
-
+.retrieval .head{
+	float: left;
+	height: 35px;
+	line-height: 35px;
+	font-size: 14px;
+}

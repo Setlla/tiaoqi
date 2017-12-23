@@ -92,42 +92,56 @@ $('.productname').keydown(function(e) {
 function content(result) {
 	var loop = "<tr class='first'>" +
 		"<td><input type='checkbox'></td>" +
-		"<td>ID</td>" +
 		"<td>图片</td>" +
 		"<td>商品名称</td>" +
 		"<td>原始价格</td>" +
 		"<td>折扣价格</td>" +
+		"<td>是否热卖</td>" +
+		"<td>是否推荐</td>" +
 		"<td>是否下架</td>" +
 		"<td>上传时间</td>" +
 		"<td>查看</td>" +
 		"</tr>"
 	for(var i = 0; i < result.length; i++) {
+		var hot=result[i].isHot;
+		var groom=result[i].isRecommend
 		var flag = result[i].isDelete;
 		loop = loop + "<tr>" +
 			"<td><input type='checkbox'></td>" +
-			"<td>" + result[i].id + "</td>" +
 			"<td><img src=" + result[i].Image + " /></td>" +
 			"<td class='name'>" + result[i].Name + "</td>" +
 			"<td>" + result[i].OldPrice + "</td>" +
 			"<td>" + result[i].CurPrice + "</td>" +
+			"<td>" + formateDelete(hot) + "</td>" +
+			"<td>" + formateDelete(groom) + "</td>" +
 			"<td>" + formateDelete(flag) + "</td>" +
 			"<td>" + new Date(result[i].createdAt).toLocaleDateString() + "</td>" +
 			"<td>" +
 			"<a onclick='editor(this)'>编辑</a> |" +
-			"<a onclick='delet("+ flag +"," + result[i].id + ")'>"+ formateValue(flag) +"</a>" +
+			"<a onclick='changeState("+ flag +"," + result[i].id + ")'>"+ changeState(hot) +"</a> |" +
+			"<a onclick='changeState("+ flag +"," + result[i].id + ")'>"+ changeState(groom) +"</a> |"+
+			"<a onclick='changeState("+ flag +"," + result[i].id + ")'>"+ changeState(flag) +"</a>"+
 			"</td>" +
 			"</tr>"
 	}
 	$("tbody").html(loop);
 }
 
-function formateDelete(val) {
-	return val ? "已下架" : "未下架";
+
+function changeState(hot,groom,flag) {
+	var a=hot ? "非热卖" : "热卖";
+	var b=groom ? "非推荐" : "推荐";
+	var c=flag ? "上架" : "下架";
+	 return {hot:a,groom:b,flag:c}
 }
 
-function formateValue(val) {
-	return val ? "上架" : "下架";
+function formateDelete(hot,groom,flag) {
+	return hot ? "已热卖" : "未热卖";
+	return groom ? "已推荐" : "未推荐";
+	return flag ? "已下架" : "未下架";
 }
+
+
 
 //本地预览图片函数
 function getObjectURL(file) {
@@ -146,7 +160,7 @@ function getObjectURL(file) {
 $(".print").change(function() {
 	var img = $('.print')[0].files[0];
 	var imgurl = getObjectURL(img);
-	img.attr("src", imgurl);
+	$(".image").attr("src", imgurl);
 })
 
 //formData表单数据的获取
