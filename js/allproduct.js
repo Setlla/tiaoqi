@@ -59,6 +59,11 @@ $(".motion").click(function() {
 	}
 })
 
+//订单跳转
+$(".order").click(function(){
+	location.href='dingdan.html'
+})
+
 //全部商品的加载与渲染
 loding();
 
@@ -100,6 +105,8 @@ function content(result) {
 		"<td>商品名称</td>" +
 		"<td>原始价格</td>" +
 		"<td>折扣价格</td>" +
+		"<td>是否热卖</td>" +
+		"<td>是否推荐</td>" +
 		"<td>上传时间</td>" +
 		"<td>设置上架</td>" +
 		"<td>设置热卖</td>" +
@@ -116,6 +123,7 @@ function content(result) {
 			"<td class='name'>" + result[i].Name + "</td>" +
 			"<td>" + result[i].OldPrice + "</td>" +
 			"<td>" + result[i].CurPrice + "</td>" +
+			"<td>" + formateDelete(hot) + "</td>" +
 			"<td>" + new Date(result[i].createdAt).toLocaleDateString() + "</td>" +
 			"<td>" + "<a onclick='changeState(0," + result[i].id + "," + result[i].isDelete + ")'>"+ formateStr(0, del) +"</a> "  + "</td>" +
 			"<td>" + "<a onclick='changeState(1," + result[i].id + "," + result[i].isHot + ")'>"+ formateStr(1, hot) +"</a>" + "</td>" +
@@ -162,7 +170,6 @@ function formateStr(flag, value) {
 	var str2 = ['下架', '热卖', '推荐']
 	return value ? str1[flag] : str2[flag];
 }
-
 
 //本地预览图片函数
 function getObjectURL(file) {
@@ -230,6 +237,29 @@ function uploadImage() {
 	});
 }
 
+//删除产品
+function delet(flag, id) {
+	var url = "";
+	if (flag) {
+		url = "http://39.108.219.59:8080/onProduct";
+	}else {
+		url = "http://39.108.219.59:8080/offProduct";
+	}
+	
+	$.ajax({
+		type: "post",
+		url: url,
+		contentType: "application/json",
+		data: JSON.stringify({
+			"id": id
+		}),
+		success: function(data) {
+			if(data.isSuccess) {
+				location.reload();
+			}
+		}
+	});
+}
 
 //进入编辑页面
 function editor(that) {
