@@ -105,8 +105,6 @@ function content(result) {
 		"<td>商品名称</td>" +
 		"<td>原始价格</td>" +
 		"<td>折扣价格</td>" +
-		"<td>是否热卖</td>" +
-		"<td>是否推荐</td>" +
 		"<td>上传时间</td>" +
 		"<td>设置上架</td>" +
 		"<td>设置热卖</td>" +
@@ -123,7 +121,6 @@ function content(result) {
 			"<td class='name'>" + result[i].Name + "</td>" +
 			"<td>" + result[i].OldPrice + "</td>" +
 			"<td>" + result[i].CurPrice + "</td>" +
-			"<td>" + formateDelete(hot) + "</td>" +
 			"<td>" + new Date(result[i].createdAt).toLocaleDateString() + "</td>" +
 			"<td>" + "<a onclick='changeState(0," + result[i].id + "," + result[i].isDelete + ")'>"+ formateStr(0, del) +"</a> "  + "</td>" +
 			"<td>" + "<a onclick='changeState(1," + result[i].id + "," + result[i].isHot + ")'>"+ formateStr(1, hot) +"</a>" + "</td>" +

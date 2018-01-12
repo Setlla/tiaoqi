@@ -228,6 +228,15 @@ i{
     width: 100px;
 }
 
+.vdp-datepicker{
+	display: -webkit-inline-box;
+}
+
+.vdp-datepicker__calendar{
+	top: 34px;
+	left: 0;
+}
+
 .groom input{
 	height: 34px;
     padding: 6px 12px;
