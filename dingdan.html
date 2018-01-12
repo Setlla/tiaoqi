@@ -12,9 +12,6 @@
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
 		<link rel="stylesheet" href="css/allproduct.css" />
 		<link rel="stylesheet" type="text/css" href="css/dingdan.css" />
-		<!--<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.js"></script>-->
 	</head>
 
 	<body>
@@ -74,15 +71,17 @@
 							</p>
 							<p class="groom">
 								<span>开始日期</span>
-								<input type="text" v-model="start"/>
+								<datepicker v-model="start"></datepicker>
+								<!--<input type="text" v-model="start" />-->
 							</p>
 							<p class="frame">
 								<span>结束日期</span>
-								<input type="text" v-model="end"/>
+								<datepicker v-model="end"></datepicker>
+								<!--<input type="text" v-model="end" />-->
 							</p>
 							<span class="shopping">客户搜索：</span>
-							<input type="text" class="productname form-control" id="exampleInputAmount" placeholder="输入客户昵称" v-model="username"/>
-							<img src="img/icon/icon_05.gif" @click="search"/>
+							<input type="text" class="productname form-control" id="exampleInputAmount" placeholder="输入客户昵称" v-model="username" />
+							<img src="img/icon/icon_05.gif" @click="search" />
 						</div>
 					</div>
 				</div>
@@ -180,53 +179,7 @@
 							</div>
 							<ul>
 								<li>
-						<product :goods="result.products" :product-num='JSON.parse(result.productNum)'>
-									<!--<div class="product" >
-										<p class="image">
-											<img src="img/bike.png" />
-										</p>
-										<div>
-											<h5>纯德国进口宝马牌山地自行车，超高时速，超高强度，超强越野性能</h5>
-											<span>颜色分类</span>
-											<p>
-												<img src="img/bike.png" />
-												<img src="img/bike.png" />
-											</p>
-											<i>商家编码：ZJ1</i>
-										</div>
-										<a>
-											18:00
-										</a>
-										<a>
-											1
-										</a>
-										<a>
-											售后
-										</a>
-									</div>
-									<div class="product">
-										<p class="image">
-											<img src="img/bike.png" />
-										</p>
-										<div>
-											<h5>纯德国进口宝马牌山地自行车，超高时速，超高强度，超强越野性能</h5>
-											<span>颜色分类</span>
-											<p>
-												<img src="img/bike.png" />
-												<img src="img/bike.png" />
-											</p>
-											<i>商家编码：ZJ1</i>
-										</div>
-										<a>
-											18:00
-										</a>
-										<a>
-											1
-										</a>
-										<a>
-											售后
-										</a>
-									</div>-->
+									<product :goods="result.products" :product-num='JSON.parse(result.productNum)'>
 									</product>
 								</li>
 								<li>
@@ -248,11 +201,11 @@
 				</div>
 			</div>
 		</div>
-		
-		
+
 		<script src="js/axios.js"></script>
 		<script src="js/vue.js"></script>
-		<script src="js/dingdan.js"></script>
+		<!--<script src="js/dingdan.js"></script>-->
+		<script src="dist/bundle.js"></script>
 	</body>
 
 </html>

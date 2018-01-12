@@ -1,3 +1,6 @@
+import Datepicker from 'vuejs-datepicker';
+
+
 Vue.component('product', {
 	props: ['goods', 'productNum'],
 	template: `<div><div class="product" v-for="(good,index) in goods">
@@ -29,6 +32,9 @@ var order = new Vue({
 		start: '',
 		end: '',
 		username: ''
+	},
+	components:{
+		Datepicker
 	},
 	methods: {
 		allproduct: function() {
