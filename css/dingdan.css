@@ -209,7 +209,7 @@ i{
 	line-height: 20px;
 }
 
-.content ul li:nth-child(5){
+.contents ul li:nth-child(5){
 	width: 80px;
 	line-height: 20px;
 }
@@ -247,7 +247,7 @@ i{
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100px;
+    width: 110px;
 }
 
 
@@ -261,7 +261,7 @@ i{
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100px;
+    width: 110px;
 }
 
 #exampleInputAmount{

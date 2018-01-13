@@ -9,18 +9,10 @@ Vue.component('product', {
 					</p>
 					<div>
 						<h5>{{good.Name}}</h5>
-						<span>颜色分类</span>
-						<p>
-							<img src="img/qitian.jpg" />
-							<img src="img/yunfei.png" />
-						</p>
-							<i>商家编码：ZJ1</i>
 					</div>
 					<a>{{"$"+good.CurPrice}}</a>
 					<a>{{productNum[index]}}</a>
-					<a>
-						售后
-					</a>
+					<a></a>
 				</div></div>`
 })
 
