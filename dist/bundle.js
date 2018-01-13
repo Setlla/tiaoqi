@@ -78,7 +78,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 Vue.component('product', {
 	props: ['goods', 'productNum'],
-	template: '<div><div class="product" v-for="(good,index) in goods">\n\t\t\t\t\t<p class="image">\n\t\t\t\t\t\t<img :src="good.Image"/>\n\t\t\t\t\t</p>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h5>{{good.Name}}</h5>\n\t\t\t\t\t\t<span>\u989C\u8272\u5206\u7C7B</span>\n\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t<img src="img/qitian.jpg" />\n\t\t\t\t\t\t\t<img src="img/yunfei.png" />\n\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<i>\u5546\u5BB6\u7F16\u7801\uFF1AZJ1</i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<a>{{"$"+good.CurPrice}}</a>\n\t\t\t\t\t<a>{{productNum[index]}}</a>\n\t\t\t\t\t<a>\n\t\t\t\t\t\t\u552E\u540E\n\t\t\t\t\t</a>\n\t\t\t\t</div></div>'
+	template: '<div><div class="product" v-for="(good,index) in goods">\n\t\t\t\t\t<p class="image">\n\t\t\t\t\t\t<img :src="good.Image"/>\n\t\t\t\t\t</p>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h5>{{good.Name}}</h5>\n\t\t\t\t\t</div>\n\t\t\t\t\t<a>{{"$"+good.CurPrice}}</a>\n\t\t\t\t\t<a>{{productNum[index]}}</a>\n\t\t\t\t\t<a></a>\n\t\t\t\t</div></div>'
 });
 
 var order = new Vue({
